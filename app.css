@@ -1,0 +1,146 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.widget{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Search Bar and Button */
+/* VVVVVVVVVVVVVVVVVVVVV */
+.topWidget{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.searchBtn{
+    border: none;
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+    max-width: 200px;
+    margin: auto;
+    padding: auto;
+}
+.searchBtn:hover{
+    background-color: rgb(146, 146, 255);
+    color: rgba(255, 255, 255, 0.391);
+    transition: all 300ms;
+}
+.searchBtn:active{
+    background-color: rgb(255, 255, 255);
+    color: rgb(161, 161, 161);
+    transition: all 100ms;
+}
+.searchBtn:disabled{
+    background-color: rgba(167, 167, 167, 0.811);
+    color: rgba(255, 255, 255, 0.409);
+    transition: all 100ms;
+}
+.searchValue{
+    max-width: 200px;
+    margin-top: 30px;
+    padding: auto;
+    position: relative;
+}
+.multiOptions{
+    list-style-type: none;
+    text-align: center;
+    padding-right: 42px;
+}
+.pickPlease{
+    font-weight: bold;
+}
+datalist{
+    position: relative;
+    background-color: white;
+    border: 1px solid rgb(0, 238, 36);
+}
+option {
+    background-color: white;
+    padding: 4px;
+    color: blue;
+    margin-bottom: 1px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+option:hover,  .active{
+    background-color: lightblue;
+}
+
+#options{
+    background-color: white;
+    padding: 4px;
+    color: blue;
+    margin-bottom: 1px;
+    font-size: 18px;
+    cursor: pointer;
+}
+/* ^^^^^^^^^^^^^^^^^^^^^ */
+/* Search Bar and Button */
+
+
+
+/* Categories and Hero Info */
+/* VVVVVVVVVVVVVVVVVVVVVVVV */
+.category{
+    margin-top: 115px;
+}
+.categories{
+    list-style-type: none;
+    text-align: right;
+    font-size: 30px;
+}
+.bothHeros{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+}
+.heroInfo1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position:relative;
+    /* border: solid blue; */
+    max-width: 500px;
+}
+.heroInfo2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* border: solid black; */
+    max-width: 500px;
+}
+.listName1{
+    font-weight: bold;
+}
+.stats1{
+    list-style-type: none;
+    padding-right: 42px;
+    margin-top: -5px;
+    text-align: center;
+    font-size: 30px;
+}
+.listName2{
+    font-weight: bold;
+}
+.stats2{
+    list-style-type: none;
+    padding-right: 42px;
+    margin-top: -5px;
+    text-align: center;
+    font-size: 30px;
+}
+.hero1, .hero2{
+    text-align: center;
+    font-size: 40px;
+}
+/* ^^^^^^^^^^^^^^^^^^^^^^^^ */
+/* Categories and Hero Info */

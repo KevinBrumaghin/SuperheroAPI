@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title>Document</title>
+</head>
+<body>
+    <span class="widget">
+        <section class="topWidget">
+            <input class="searchValue" type="text" placeholder="Enter a Superhero" list="characterList">
+            <datalist id="characterList"></datalist>
+            <ul class="multiOptions">
+            </ul>
+            <button class="searchBtn">Add Hero</button>
+        </section>
+        <span class="bothHeros">
+            <section class="category">
+                <ul class="categories">
+                    <li>Combat</li>
+                    <li>Durability</li>
+                    <li>Intelligence</li>
+                    <li>Power</li>
+                    <li>Speed</li>
+                    <li>Strength</li>
+                </ul>
+            </section>
+            <section class="heroInfo1">
+                <h1 class="hero1">Hero #1</h1>
+                <ul class="stats1">
+                </ul>
+            </section>
+            <section class="category">
+                <ul class="categories">
+                    <li>Combat</li>
+                    <li>Durability</li>
+                    <li>Intelligence</li>
+                    <li>Power</li>
+                    <li>Speed</li>
+                    <li>Strength</li>
+                </ul>
+            </section>
+            <section class="heroInfo2">
+                <h1 class="hero2">Hero #2</h1>
+                <ul class="stats2">
+                </ul>
+            </section>
+        </span>
+    </span>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
