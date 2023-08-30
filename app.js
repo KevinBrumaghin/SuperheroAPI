@@ -159,6 +159,7 @@ searchButton.addEventListener('click', async function(){
         isHero1 = true;
         console.log('Data:', superHero);
         input.value = "";
+        heroName1.innerText = hero.data.results[0].name;
       }
 
       //Input hero into hero spot 2!
@@ -220,6 +221,7 @@ searchButton.addEventListener('click', async function(){
         isHero2 = true;
         console.log('Data:', superHero);
         input.value = "";
+        heroName2.innerText = hero.data.results[0].name;
 
         if(isHero2 == true){
           searchButton.disabled = true;
@@ -307,6 +309,7 @@ input.addEventListener("keypress", async function(event){
         isHero1 = true;
         console.log('Data:', superHero);
         input.value = "";
+        heroName1.innerText = hero.data.results[0].name;
       }
 
       //Input hero into hero spot 2!
@@ -357,7 +360,7 @@ input.addEventListener("keypress", async function(event){
         else{
           superHeroBio = hero.data.results[0].biography;
           superHero = hero.data.results[0].powerstats;
-          heroStats2.insertAdjacentHTML('beforeend',`<li class="listName">${superHeroBio['full-name']}</li>`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li class="listName2">${superHeroBio['full-name']}</li>`)
           heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li>`)
           heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li>`)
           heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li>`)
@@ -368,6 +371,7 @@ input.addEventListener("keypress", async function(event){
         isHero2 = true;
         console.log('Data:', superHero);
         input.value = "";
+        heroName2.innerText = hero.data.results[0].name;
 
         if(isHero2 == true){
           searchButton.disabled = true;
