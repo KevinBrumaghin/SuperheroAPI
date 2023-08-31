@@ -61,8 +61,10 @@ datalist{
     background-color: white;
     border: 1px solid rgb(0, 238, 36);
 }
-
-.option1, .option2, .option3, .option4, .option5, .option6, .option7, .option8, .option9, .option10{
+#optionsNull{
+    display: none;
+}
+.option1, .option2, .option3, .option4, .option5, .option6, .option7, .option8, .option9, .option10, .option11, .option12{
     background-color: white;
     padding: 4px;
     color: blue;
@@ -152,3 +154,9 @@ main{
 }
 /* ^^^^^^^^^^^^^^^^^^^^^^^^ */
 /* Categories and Hero Info */
+
+/* Repeat Hero Message */
+.title{
+    background-color: blue;
+}
+/* Repeat Hero Message */
