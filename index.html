@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://db.onlinewebfonts.com/c/f793779a938d146e45851f90db29e3e2?family=Tahoma+Bold" rel="stylesheet" type="text/css"/>
+    <link href="https://db.onlinewebfonts.com/c/0c4b4edf134c575c2d66675ee4be30ae?family=Tahoma+W99+Regular" rel="stylesheet" type="text/css"/>
+    <link href="https://db.onlinewebfonts.com/c/d002e7c91b889cc10ce21789cfde95dd?family=Sequel+100+Wide+95" rel="stylesheet">
     <link rel="stylesheet" href="app.css">
     <title>Document</title>
 </head>
@@ -11,22 +14,27 @@
         <section class="topWidget">
             <input class="searchValue" type="text" placeholder="Enter a Superhero" list="characterList">
             <datalist id="characterList"></datalist>
-            <ul class="multiOptions">
-            </ul>
+            <ul class="pick"></ul>
+            <ul class="multiOptions"></ul>
             <button class="searchBtn">Add Hero</button>
         </section>
         <main>
         <section class="category">
             <ul class="categories">
                 <li>Combat</li>
+                <hr>
                 <li>Durability</li>
+                <hr>
                 <li>Intelligence</li>
+                <hr>
                 <li>Power</li>
+                <hr>
                 <li>Speed</li>
+                <hr>
                 <li>Strength</li>
             </ul>
         </section>
-        <heros class="bothHeros">
+        <heroes class="bothHeros">
             <section class="heroInfo1">
                 <h1 class="hero1">Hero #1</h1>
                 <ul class="stats1">
@@ -37,18 +45,24 @@
                 <ul class="stats2">
                 </ul>
             </section>
-        </heros>
+        </heroes>
         <section class="category">
             <ul class="categories2">
                 <li>Combat</li>
+                <hr>
                 <li>Durability</li>
+                <hr>
                 <li>Intelligence</li>
+                <hr>
                 <li>Power</li>
+                <hr>
                 <li>Speed</li>
+                <hr>
                 <li>Strength</li>
             </ul>
         </section>
     </main>
+    <fight></fight>
     </span>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>

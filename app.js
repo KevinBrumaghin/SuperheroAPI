@@ -6,6 +6,7 @@ let heroStats2 = document.querySelector('.stats2');
 let input = document.querySelector('.searchValue');
 let searchButton = document.querySelector('.searchBtn');
 let multi = document.querySelector('.multiOptions');
+let pick = document.querySelector('.pick');
 let nameSlot1 = '';
 
 //Boolean to know which hero slot to fill
@@ -36,11 +37,11 @@ function optionsListener1(index, hero){
   console.log('Listener1 Engaged')
 
     heroStats1.insertAdjacentHTML('beforeend',`<li class="listName1">${superHeroBio['full-name']}</li>`)
-    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li>`)
-    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li>`)
-    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li>`)
-    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li>`)
-    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li>`)
+    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
+    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li><hr class="hrList">`)
+    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li><hr class="hrList">`)
+    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li><hr class="hrList">`)
+    heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li><hr class="hrList">`)
     heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
 
     searchButton.disabled = false;
@@ -49,6 +50,7 @@ function optionsListener1(index, hero){
     while (multi.firstChild) {
       multi.removeChild(multi.firstChild);
     }
+    pick.removeChild(pick.firstChild);
 
     heroName1.innerText = hero.data.results[index].name;
     input.value = "";
@@ -68,11 +70,11 @@ function optionsListener2(index, hero){
       multi.removeChild(multi.firstChild);
     }
     heroStats2.insertAdjacentHTML('beforeend',`<li class="listName1">${superHeroBio['full-name']}</li>`)
-    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li>`)
-    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li>`)
-    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li>`)
-    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li>`)
-    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li>`)
+    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
+    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li><hr class="hrList">`)
+    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li><hr class="hrList">`)
+    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li><hr class="hrList">`)
+    heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li><hr class="hrList">`)
     heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
 
     searchButton.disabled = false;
@@ -81,6 +83,7 @@ function optionsListener2(index, hero){
     while (multi.firstChild) {
       multi.removeChild(multi.firstChild);
     }
+    pick.removeChild(pick.firstChild);
 
     heroName2.innerText = hero.data.results[index].name;
     input.value = "";
@@ -113,7 +116,7 @@ searchButton.addEventListener('click', async function(){
           //If multiple options
           if(hero.data.results.length > 1){
             let i = 0;
-            multi.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
+            pick.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
             searchButton.disabled = true;
             input.disabled = true;
             do{
@@ -163,11 +166,11 @@ searchButton.addEventListener('click', async function(){
             superHeroBio = hero.data.results[0].biography;
             superHero = hero.data.results[0].powerstats;
             heroStats1.insertAdjacentHTML('beforeend',`<li class="listName1">${superHeroBio['full-name']}</li>`)
-            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li>`)
-            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li>`)
-            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li>`)
-            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li>`)
-            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li>`)
+            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
+            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li><hr class="hrList">`)
+            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li><hr class="hrList">`)
+            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li><hr class="hrList">`)
+            heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li><hr class="hrList">`)
             heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
             heroName1.innerText = hero.data.results[0].name;
             isHero1 = true;
@@ -182,7 +185,7 @@ searchButton.addEventListener('click', async function(){
         //If multiple options
         if(hero.data.results.length > 1){
           let i = 0;
-          multi.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
+          pick.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
           searchButton.disabled = true;
           input.disabled = true;
           do{
@@ -233,11 +236,11 @@ searchButton.addEventListener('click', async function(){
           superHeroBio = hero.data.results[0].biography;
           superHero = hero.data.results[0].powerstats;
           heroStats2.insertAdjacentHTML('beforeend',`<li class="listName2">${superHeroBio['full-name']}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li>`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li><hr class="hrList">`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li><hr class="hrList">`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li><hr class="hrList">`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li><hr class="hrList">`)
           heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
           heroName2.innerText = hero.data.results[0].name;
           isHero2 = true;
@@ -277,7 +280,7 @@ input.addEventListener("keypress", async function(event){
         //If multiple options
         if(hero.data.results.length > 1){
           let i = 0;
-          multi.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
+          pick.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
           searchButton.disabled = true;
           input.disabled = true;
           do{
@@ -330,11 +333,11 @@ input.addEventListener("keypress", async function(event){
           superHeroBio = hero.data.results[0].biography;
           superHero = hero.data.results[0].powerstats;
           heroStats1.insertAdjacentHTML('beforeend',`<li class="listName1">${superHeroBio['full-name']}</li>`)
-          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li>`)
-          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li>`)
-          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li>`)
-          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li>`)
-          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li>`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li><hr class="hrList">`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li><hr class="hrList">`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li><hr class="hrList">`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li><hr class="hrList">`)
           heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
           heroName1.innerText = hero.data.results[0].name;
           isHero1 = true;
@@ -349,7 +352,7 @@ input.addEventListener("keypress", async function(event){
         //If multiple options
         if(hero.data.results.length > 1){
           let i = 0;
-          multi.insertAdjacentHTML('beforeend', `<li id = "options" class = "pickPlease">Please Pick an Option Below:</li>`)
+          pick.insertAdjacentHTML('beforeend', `<li id = "options" class = "pickPlease">Please Pick an Option Below:</li>`)
           searchButton.disabled = true;
           input.disabled = true;
           do{
@@ -402,11 +405,11 @@ input.addEventListener("keypress", async function(event){
           superHeroBio = hero.data.results[0].biography;
           superHero = hero.data.results[0].powerstats;
           heroStats2.insertAdjacentHTML('beforeend',`<li class="listName2">${superHeroBio['full-name']}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li>`)
-          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li>`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li><hr class="hrList">`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li><hr class="hrList">`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li><hr class="hrList">`)
+          heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li><hr class="hrList">`)
           heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
           heroName2.innerText = hero.data.results[0].name;
           isHero2 = true;
@@ -421,6 +424,9 @@ input.addEventListener("keypress", async function(event){
         if(isHero2 == true){
           searchButton.disabled = true;
           input.disabled = true;
+          const fightBtn = createElement("button",{class: "fightBtn"});
+          const fightSect = document.querySelector('fight');
+          document.body.insertBefore(fightBtn, fightSect);
         }
 
       }
