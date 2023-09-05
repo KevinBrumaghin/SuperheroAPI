@@ -8,6 +8,9 @@ let searchButton = document.querySelector('.searchBtn');
 let multi = document.querySelector('.multiOptions');
 let pick = document.querySelector('.pick');
 let nameSlot1 = '';
+let nameSlot2 = '';
+let rh1 = document.querySelector('#RH1');
+let rh2 = document.querySelector('#RH2');
 
 //Boolean to know which hero slot to fill
 let isHero1 = false; //Hero slot 1 not full on startup
@@ -34,7 +37,6 @@ return sentence;
 function optionsListener1(index, hero){
   superHeroBio = hero.data.results[index].biography;
   superHero = hero.data.results[index].powerstats;
-  console.log('Listener1 Engaged')
 
     heroStats1.insertAdjacentHTML('beforeend',`<li class="listName1">${superHeroBio['full-name']}</li>`)
     heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
@@ -55,6 +57,10 @@ function optionsListener1(index, hero){
     heroName1.innerText = hero.data.results[index].name;
     input.value = "";
     isHero1 = true;
+    if(isHero2 == true && isHero1 == true){
+      searchButton.disabled = true;
+      input.disabled = true;
+    }
 }
 
 // //If multiple options for a hero appear, this helps decide which to show, hero slot 2
@@ -69,7 +75,7 @@ function optionsListener2(index, hero){
     while (multi.firstChild) {
       multi.removeChild(multi.firstChild);
     }
-    heroStats2.insertAdjacentHTML('beforeend',`<li class="listName1">${superHeroBio['full-name']}</li>`)
+    heroStats2.insertAdjacentHTML('beforeend',`<li class="listName2">${superHeroBio['full-name']}</li>`)
     heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
     heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li><hr class="hrList">`)
     heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li><hr class="hrList">`)
@@ -119,14 +125,21 @@ searchButton.addEventListener('click', async function(){
             pick.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
             searchButton.disabled = true;
             input.disabled = true;
+            if(isHero2 == true){
+              nameSlot2 = document.querySelector('.listName2').innerText;
+            }
+            else{
+              nameSlot2 = "";
+            }
             do{
               superHero = hero.data.results[i].powerstats;
-              if(hero.data.results[i].biography['full-name'] == '' || superHero.combat == 'null' || superHero.durability == 'null' || superHero.intelligence == 'null' || superHero.power == 'null' || superHero.speed == 'null' || superHero.strength == 'null'){
+              if(hero.data.results[i].biography['full-name'] == '' || superHero.combat == 'null' || superHero.durability == 'null' || superHero.intelligence == 'null' || superHero.power == 'null' || superHero.speed == 'null' || superHero.strength == 'null' || hero.data.results[i].biography['full-name'] == nameSlot2){
                 multi.insertAdjacentHTML('beforeend', `<li id = "optionsNull" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
                 i++;
               }
               else{
                 multi.insertAdjacentHTML('beforeend', `<li id = "options" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
+                //DEBUGGING
                 console.log(hero.data.results[i].biography['full-name'], i+1)
                 i++;
               }
@@ -159,10 +172,14 @@ searchButton.addEventListener('click', async function(){
               console.log('')
             }
             heroName1.innerText = titleCase(input.value);
+            if(isHero2 == true && isHero1 == true){
+              searchButton.disabled = true;
+              input.disabled = true;
+            }
           }
 
           //If not multiple options
-          else{
+          else if(hero.data.results[0].name != heroName2.innerText){
             superHeroBio = hero.data.results[0].biography;
             superHero = hero.data.results[0].powerstats;
             heroStats1.insertAdjacentHTML('beforeend',`<li class="listName1">${superHeroBio['full-name']}</li>`)
@@ -175,8 +192,17 @@ searchButton.addEventListener('click', async function(){
             heroName1.innerText = hero.data.results[0].name;
             isHero1 = true;
           }
+          else{
+            confirm('Hero already in use, please enter a new hero name!');
+            input.value = '';
+          }
+        //DEBUGGING
         console.log('Data:', superHero);
         input.value = "";
+        if(isHero2 == true && isHero1 == true){
+          searchButton.disabled = true;
+          input.disabled = true;
+        }
       }
 
       //Input hero into hero spot 2!
@@ -197,6 +223,7 @@ searchButton.addEventListener('click', async function(){
             }
             else{
               multi.insertAdjacentHTML('beforeend', `<li id = "options" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
+              //DEBUGGING
               console.log(hero.data.results[i].biography['full-name'], i+1)
               i++;
             }
@@ -229,10 +256,14 @@ searchButton.addEventListener('click', async function(){
               console.log('')
             }
             heroName2.innerText = titleCase(input.value);
+            if(isHero2 == true && isHero1 == true){
+              searchButton.disabled = true;
+              input.disabled = true;
+            }
         }
 
         //If not multiple options
-        else{
+        else if(hero.data.results[0].biography['full-name'] != document.querySelector('.listName1').innerText){
           superHeroBio = hero.data.results[0].biography;
           superHero = hero.data.results[0].powerstats;
           heroStats2.insertAdjacentHTML('beforeend',`<li class="listName2">${superHeroBio['full-name']}</li>`)
@@ -245,24 +276,30 @@ searchButton.addEventListener('click', async function(){
           heroName2.innerText = hero.data.results[0].name;
           isHero2 = true;
         }
+        else{
+          confirm('Hero already in use, please enter a new hero name!');
+          input.value = "";
+        }
+        //DEBUGGING
         console.log('Data:', superHero);
         input.value = "";
-        if(isHero2 == true){
+        if(isHero2 == true && isHero1 == true){
           searchButton.disabled = true;
           input.disabled = true;
         }
-
+      }
+      if(isHero2 == true && isHero1 == true){
+        searchButton.disabled = true;
+        input.disabled = true;
       }
       })
       .catch(error => {
         console.error('Error:', error);
       });
-
 })
 
 input.addEventListener("keypress", async function(event){
   if(event.key === "Enter"){
-
     const name = input.value.replace(' ', ''); //Closes gaps on search term to format for URL search
 
     ////FOR DEBUGGING////
@@ -283,14 +320,23 @@ input.addEventListener("keypress", async function(event){
           pick.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
           searchButton.disabled = true;
           input.disabled = true;
+          if(isHero2 == true){
+            nameSlot2 = document.querySelector('.listName2').innerText;
+            //DEBUGGING
+            console.log('Hero 2 is full')
+          }
+          else{
+            nameSlot2 = "";
+          }
           do{
             superHero = hero.data.results[i].powerstats;
-            if(hero.data.results[i].biography['full-name'] == '' || superHero.combat == 'null' || superHero.durability == 'null' || superHero.intelligence == 'null' || superHero.power == 'null' || superHero.speed == 'null' || superHero.strength == 'null'){
+            if(hero.data.results[i].biography['full-name'] == '' || superHero.combat == 'null' || superHero.durability == 'null' || superHero.intelligence == 'null' || superHero.power == 'null' || superHero.speed == 'null' || superHero.strength == 'null' || hero.data.results[i].biography['full-name'] == nameSlot2){
               multi.insertAdjacentHTML('beforeend', `<li id = "optionsNull" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
               i++;
             }
             else{
               multi.insertAdjacentHTML('beforeend', `<li id = "options" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
+              //DEBUGGING
               console.log(hero.data.results[i].biography['full-name'], i+1)
               i++;
             }
@@ -324,12 +370,17 @@ input.addEventListener("keypress", async function(event){
             console.log('')
           }
           heroName1.innerText = titleCase(input.value);
+          //DEBUGGING
           console.log('Data:', superHero);
           input.value = "";
+          if(isHero2 == true && isHero1 == true){
+            searchButton.disabled = true;
+            input.disabled = true;
+          }
         }
 
         //If not multiple options
-        else{
+        else if(hero.data.results[0].name != heroName2.innerText){
           superHeroBio = hero.data.results[0].biography;
           superHero = hero.data.results[0].powerstats;
           heroStats1.insertAdjacentHTML('beforeend',`<li class="listName1">${superHeroBio['full-name']}</li>`)
@@ -341,14 +392,24 @@ input.addEventListener("keypress", async function(event){
           heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
           heroName1.innerText = hero.data.results[0].name;
           isHero1 = true;
+          //DEBUGGING
           console.log('Data:', superHero);
           input.value = "";
+        }
+        else{
+          confirm('Hero already in use, please enter a new hero name!');
+          input.value = '';
+        }
+        console.log(isHero1)
+        console.log(isHero2)
+        if(isHero2 == true && isHero1 == true){
+          searchButton.disabled = true;
+          input.disabled = true;
         }
       }
 
       //Input hero into hero spot 2!
       else{
-        console.log(document.querySelector('.listName1'));
         //If multiple options
         if(hero.data.results.length > 1){
           let i = 0;
@@ -364,6 +425,7 @@ input.addEventListener("keypress", async function(event){
             }
             else{
               multi.insertAdjacentHTML('beforeend', `<li id = "options" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
+              //DEBUGGING
               console.log(hero.data.results[i].biography['full-name'], i+1)
               i++;
             }
@@ -397,8 +459,13 @@ input.addEventListener("keypress", async function(event){
               console.log('')
             }
             heroName2.innerText = titleCase(input.value);
+            //DEBUGGING
             console.log('Data:', superHero);
             input.value = "";
+            if(isHero2 == true && isHero1 == true){
+              searchButton.disabled = true;
+              input.disabled = true;
+            }
         }
         //If not multiple options
         else if(hero.data.results[0].biography['full-name'] != document.querySelector('.listName1').innerText){
@@ -413,6 +480,7 @@ input.addEventListener("keypress", async function(event){
           heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
           heroName2.innerText = hero.data.results[0].name;
           isHero2 = true;
+          //DEBUGGING
           console.log('Data:', superHero);
           input.value = "";
         }
@@ -420,19 +488,36 @@ input.addEventListener("keypress", async function(event){
           confirm('Hero already in use, please enter a new hero name!');
           input.value = '';
         }
-
-        if(isHero2 == true){
+        if(isHero2 == true && isHero1 == true){
           searchButton.disabled = true;
           input.disabled = true;
-          const fightBtn = createElement("button",{class: "fightBtn"});
-          const fightSect = document.querySelector('fight');
-          document.body.insertBefore(fightBtn, fightSect);
         }
-
+      }
+      if(isHero2 == true && isHero1 == true){
+        searchButton.disabled = true;
+        input.disabled = true;
       }
       })
       .catch(error => {
         console.error('Error:', error);
       });
   }
+})
+
+function reset(heroStats, heroName, num){
+  input.disabled = false;
+  searchButton.disabled = false;
+  heroName.innerText = `Hero #${num}`;
+  while (heroStats.firstChild) {
+    heroStats.removeChild(heroStats.firstChild);
+  }
+}
+
+rh1.addEventListener('click', function(){
+  reset(heroStats1, heroName1, 1);
+  isHero1 = false;
+})
+rh2.addEventListener('click', function(){
+  reset(heroStats2, heroName2, 2);
+  isHero2 = false;
 })

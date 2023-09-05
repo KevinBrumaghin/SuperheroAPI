@@ -57,7 +57,8 @@ body{
 .searchValue{
     border: solid rgb(43, 69, 112);
     background-color: rgb(226, 231, 245);
-    max-width: 300px;
+    width: 300px;
+    height: 25px;
     margin-top: 30px;
     padding: 5px;
     position: relative;
@@ -117,7 +118,7 @@ main{
 .bothHeros{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     position: relative;
     /* border: solid black; */
 }
@@ -220,11 +221,24 @@ hr{
     background-color: rgb(113, 128, 172);
     border-radius: 20px;
 }
+reset{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#RH1, #RH2{
+    border: solid rgb(43, 69, 112);
+    background-color: rgb(113, 128, 172);
+    color: rgb(43, 69, 112);
+    border-radius: 20px;
+    width: 140px;
+    height: 30px;
+    margin: auto;
+    padding-bottom: 5px;
+    font-size: small;
+    font-family: "Sequel 100 Wide 95";
+    cursor: pointer;
+    margin: 0px 210px;
+}
 /* ^^^^^^^^^^^^^^^^^^^^^^^^ */
 /* Categories and Hero Info */
-
-/* Repeat Hero Message */
-.title{
-    background-color: blue;
-}
-/* Repeat Hero Message */
