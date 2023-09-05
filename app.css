@@ -14,6 +14,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    width: auto;
 }
 
 
@@ -211,16 +212,6 @@ hr{
     height: .1px;
     width: 50px;
 }
-.fightBtn{
-    text-align: center;
-    font-size: 30px;
-    padding: 10px;
-    color: rgb(43, 69, 112);
-    letter-spacing: 1px;
-    font-family: "Tahoma Bold";
-    background-color: rgb(113, 128, 172);
-    border-radius: 20px;
-}
 reset{
     display: flex;
     flex-direction: row;
@@ -242,3 +233,244 @@ reset{
 }
 /* ^^^^^^^^^^^^^^^^^^^^^^^^ */
 /* Categories and Hero Info */
+
+@media only screen and (max-width: 768px) {
+    body{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background: rgb(43,69,112);
+    background: linear-gradient(0deg, rgba(43,69,112,1) 0%, rgba(59,105,181,1) 15%, rgba(165,199,255,1) 92%);
+    font-family: "Sequel 100 Wide 95";
+    color: rgb(43, 69, 112);
+    height: 100vh;
+}
+.widget{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: auto;
+}
+
+
+/* Search Bar and Button */
+/* VVVVVVVVVVVVVVVVVVVVV */
+.topWidget{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.searchBtn{
+    border: solid rgb(43, 69, 112);
+    background-color: rgb(113, 128, 172);
+    color: rgb(43, 69, 112);
+    border-radius: 20px;
+    width: 140px;
+    height: 30px;
+    margin: auto;
+    padding-bottom: 5px;
+    font-size: small;
+    font-family: "Sequel 100 Wide 95";
+    cursor: pointer;
+}
+.searchBtn:hover{
+    background-color: rgb(226, 231, 245);
+    color: rgb(43, 69, 112);
+    transition: all 300ms;
+}
+.searchBtn:active{
+    background-color: rgb(255, 255, 255);
+    color: rgb(161, 161, 161);
+    transition: all 100ms;
+}
+.searchBtn:disabled{
+    background-color: rgba(167, 167, 167, 0.811);
+    color: rgba(255, 255, 255, 0.409);
+    transition: all 100ms;
+    cursor: default;
+}
+.searchValue{
+    border: solid rgb(43, 69, 112);
+    background-color: rgb(226, 231, 245);
+    width: 300px;
+    height: 25px;
+    margin-top: 30px;
+    padding: 5px;
+    position: relative;
+    border-radius: 20px;
+}
+.multiOptions{
+    display: flex;
+    text-align: center;
+    padding-right: 42px;
+    flex-direction: row;
+}
+.pickPlease{
+    font-family: "Tahoma Bold";
+    text-decoration: underline;
+    list-style-type: none;
+    margin-bottom: -15px;
+}
+#optionsNull{
+    display: none;
+}
+.option1, .option2, .option3, .option4, .option5, .option6, .option7, .option8, .option9, .option10, .option11, .option12{
+    margin-left: 35px;
+    color: rgb(43, 69, 112);
+    margin-bottom: 1px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "Tahoma W99 Regular";
+    padding-left: -10px;
+}
+/* ^^^^^^^^^^^^^^^^^^^^^ */
+/* Search Bar and Button */
+
+
+
+/* Categories and Hero Info */
+/* VVVVVVVVVVVVVVVVVVVVVVVV */
+main{
+    display: flex;
+    flex-direction: row;
+    margin-right: 32px;
+}
+.category{
+    margin-top: 60px;
+}
+.categories{
+    list-style-type: none;
+    text-align: right;
+    font-size: 9px;
+    margin-right: 10px;
+}
+.categories2{
+    list-style-type: none;
+    text-align: left;
+    font-size: 9px;
+    margin-left: -30px;
+}
+.bothHeros{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    /* border: solid black; */
+}
+.heroInfo1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position:relative;
+    /* border: solid blue; */
+    max-width: 275px;
+    margin-right: 5px;
+    font-size: 15px;
+}
+.heroInfo2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* border: solid black; */
+    max-width: 275px;
+    margin-left: 5px;
+    font-size: 15px;
+}
+.listName1{
+    font-family: "Tahoma Bold";
+    color: rgb(43, 69, 112);
+    -webkit-text-stroke: .5px rgb(113, 128, 172);
+    font-weight: bold;
+    padding-bottom: 10px;
+    max-width: 200px;
+    height: 5px;
+}
+.stats1{
+    list-style-type: none;
+    padding-right: 42px;
+    margin-top: -5px;
+    text-align: center;
+    font-size: 9px;
+    color: rgb(113, 128, 172);
+    letter-spacing: 1px;
+    -webkit-text-stroke: 1.5px rgb(43, 69, 112);
+}
+.listName2{
+    font-family: "Tahoma Bold";
+    color: rgb(43, 69, 112);
+    -webkit-text-stroke: .5px rgb(113, 128, 172);
+    font-weight: bold;
+    padding-bottom: 10px;
+    max-width: 200px;
+    height: 5px;
+}
+.stats2{
+    list-style-type: none;
+    padding-right: 42px;
+    margin-top: -5px;
+    text-align: center;
+    font-size: 9px;
+    color: rgb(113, 128, 172);
+    letter-spacing: 1px;
+    -webkit-text-stroke: 1.5px rgb(43, 69, 112);
+}
+.hero1{
+    text-align: center;
+    font-size: 20px;
+    padding-top: 2px;
+    color: rgb(43, 69, 112);
+    letter-spacing: 1px;
+    font-family: "Tahoma Bold";
+    background-color: rgb(113, 128, 172);
+    border-radius: 20px;
+    max-width: 500px;
+    max-height: 15px;
+}
+.hero2{
+    text-align: center;
+    font-size: 20px;
+    padding-top: 2px;
+    color: rgb(43, 69, 112);
+    letter-spacing: 1px;
+    font-family: "Tahoma Bold";
+    background-color: rgb(113, 128, 172);
+    border-radius: 20px;
+    max-width: 500px;
+    max-height: 15px;
+}
+hr{
+    border: solid rgb(43, 69, 112);
+    background-color: rgb(43, 69, 112);
+    border-radius: 20px;
+    height: .1px;
+}
+.hrList{
+    border: solid rgb(43, 69, 112);
+    background-color: rgb(43, 69, 112);
+    border-radius: 20px;
+    height: .1px;
+    width: 50px;
+}
+reset{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#RH1, #RH2{
+    border: solid rgb(43, 69, 112);
+    background-color: rgb(113, 128, 172);
+    color: rgb(43, 69, 112);
+    border-radius: 20px;
+    width: 105px;
+    height: 22px;
+    margin: auto;
+    padding-bottom: 5px;
+    font-size: 9px;
+    font-family: "Sequel 100 Wide 95";
+    cursor: pointer;
+    margin: 0px 110px;
+}
+}
