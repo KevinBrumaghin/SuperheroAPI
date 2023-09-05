@@ -51,22 +51,80 @@ body {
     border-radius: 20px;
 }
 
-/* ... Other CSS rules ... */
+/* Categories and Hero Info */
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px; /* Adjust as needed */
+}
+
+.categories, .categories2 {
+    list-style-type: none;
+    font-size: 21px;
+}
+
+.categories {
+    margin-top: 115px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.categories2 {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.bothHeros {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+.heroInfo1, .heroInfo2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    max-width: 500px;
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+.reset {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#RH1, #RH2 {
+    border: solid rgb(43, 69, 112);
+    background-color: rgb(113, 128, 172);
+    color: rgb(43, 69, 112);
+    border-radius: 20px;
+    width: 140px;
+    height: 30px;
+    margin: auto;
+    padding-bottom: 5px;
+    font-size: small;
+    font-family: "Sequel 100 Wide 95";
+    cursor: pointer;
+}
 
 /* Media Query for Mobile Devices */
 @media screen and (max-width: 768px) {
-    body {
-        font-size: 14px; /* Adjust font size for smaller screens */
+    .mainContainer {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .searchBtn {
-        width: 120px; /* Adjust button width for smaller screens */
+    .categories, .categories2 {
+        margin-top: 15px;
     }
 
-    .searchValue {
-        width: 80%; /* Adjust input width for smaller screens */
-        max-width: none; /* Remove maximum width for larger screens */
+    .heroInfo1, .heroInfo2 {
+        margin: 15px 0;
     }
-
-    /* Add more styles here for smaller screens if needed */
 }
