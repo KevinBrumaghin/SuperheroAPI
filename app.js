@@ -504,6 +504,204 @@ input.addEventListener("keypress", async function(event){
   }
 })
 
+
+//Touch for Mobile
+element.addEventListener('touchend', async function(event) {
+
+  const name = input.value.replace(' ', ''); //Closes gaps on search term to format for URL search
+
+  ////FOR DEBUGGING////
+  console.log(`https://superheroapi.com/api/${apiKey}/search/${name}`)
+  ////FOR DEBUGGING////
+
+  //Getting from Superhero API with API key and search input(name)
+  return await axios.get(`https://superheroapi.com/api/${apiKey}/search/${name}`)
+    .then(hero => {
+      let heroSearch = input.value;
+      let heroPower = hero.data.results[0].powerstats;
+
+      //Input hero into hero spot 1!
+      if(isHero1 == false){
+
+        //If multiple options
+        if(hero.data.results.length > 1){
+          let i = 0;
+          pick.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
+          searchButton.disabled = true;
+          input.disabled = true;
+          if(isHero2 == true){
+            nameSlot2 = document.querySelector('.listName2').innerText;
+          }
+          else{
+            nameSlot2 = "";
+          }
+          do{
+            superHero = hero.data.results[i].powerstats;
+            if(hero.data.results[i].biography['full-name'] == '' || superHero.combat == 'null' || superHero.durability == 'null' || superHero.intelligence == 'null' || superHero.power == 'null' || superHero.speed == 'null' || superHero.strength == 'null' || hero.data.results[i].biography['full-name'] == nameSlot2){
+              multi.insertAdjacentHTML('beforeend', `<li id = "optionsNull" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
+              i++;
+            }
+            else{
+              multi.insertAdjacentHTML('beforeend', `<li id = "options" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
+              //DEBUGGING
+              console.log(hero.data.results[i].biography['full-name'], i+1)
+              i++;
+            }
+          }
+          while(i<hero.data.results.length && i<9);
+
+          let option1 = document.querySelector('.option1');
+          let option2 = document.querySelector('.option2');
+          let option3 = document.querySelector('.option3');
+          let option4 = document.querySelector('.option4');
+          let option5 = document.querySelector('.option5');
+          let option6 = document.querySelector('.option6');
+          let option7 = document.querySelector('.option7');
+          let option8 = document.querySelector('.option8');
+          let option9 = document.querySelector('.option9');
+          let option10 = document.querySelector('.option10');
+          try{
+          option1.addEventListener('touchend', async function(event){optionsListener1(0, hero)})
+          option2.addEventListener('touchend', async function(event){optionsListener1(1, hero)})
+          option3.addEventListener('touchend', async function(event){optionsListener1(2, hero)})
+          option4.addEventListener('touchend', async function(event){optionsListener1(3, hero)})
+          option5.addEventListener('touchend', async function(event){optionsListener1(4, hero)})
+          option6.addEventListener('touchend', async function(event){optionsListener1(5, hero)})
+          option7.addEventListener('touchend', async function(event){optionsListener1(6, hero)})
+          option8.addEventListener('touchend', async function(event){optionsListener1(7, hero)})
+          option9.addEventListener('touchend', async function(event){optionsListener1(8, hero)})
+          option10.addEventListener('touchend', async function(event){optionsListener1(9, hero)})
+          }
+          catch(err){
+            console.log('')
+          }
+          heroName1.innerText = titleCase(input.value);
+          if(isHero2 == true && isHero1 == true){
+            searchButton.disabled = true;
+            input.disabled = true;
+          }
+        }
+
+        //If not multiple options
+        else if(hero.data.results[0].name != heroName2.innerText){
+          superHeroBio = hero.data.results[0].biography;
+          superHero = hero.data.results[0].powerstats;
+          heroStats1.insertAdjacentHTML('beforeend',`<li class="listName1">${superHeroBio['full-name']}</li>`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li><hr class="hrList">`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li><hr class="hrList">`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li><hr class="hrList">`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li><hr class="hrList">`)
+          heroStats1.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
+          heroName1.innerText = hero.data.results[0].name;
+          isHero1 = true;
+        }
+        else{
+          confirm('Hero already in use, please enter a new hero name!');
+          input.value = '';
+        }
+      //DEBUGGING
+      console.log('Data:', superHero);
+      input.value = "";
+      if(isHero2 == true && isHero1 == true){
+        searchButton.disabled = true;
+        input.disabled = true;
+      }
+    }
+
+    //Input hero into hero spot 2!
+    else{
+
+      //If multiple options
+      if(hero.data.results.length > 1){
+        let i = 0;
+        pick.insertAdjacentHTML('beforeend', `<li class = "pickPlease">Please Pick an Option Below:</li>`)
+        searchButton.disabled = true;
+        input.disabled = true;
+        do{
+          nameSlot1 = document.querySelector('.listName1').innerText
+          superHero = hero.data.results[i].powerstats;
+          if(hero.data.results[i].biography['full-name'] == '' || superHero.combat == 'null' || superHero.durability == 'null' || superHero.intelligence == 'null' || superHero.power == 'null' || superHero.speed == 'null' || superHero.strength == 'null' || hero.data.results[i].biography['full-name'] == nameSlot1){
+            multi.insertAdjacentHTML('beforeend', `<li id = "optionsNull" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
+            i++;
+          }
+          else{
+            multi.insertAdjacentHTML('beforeend', `<li id = "options" class = "option${i+1}">${hero.data.results[i].biography['full-name']}</li>`)
+            //DEBUGGING
+            console.log(hero.data.results[i].biography['full-name'], i+1)
+            i++;
+          }
+        }
+        while(i<hero.data.results.length && i<9);
+
+          let option1 = document.querySelector('.option1');
+          let option2 = document.querySelector('.option2');
+          let option3 = document.querySelector('.option3');
+          let option4 = document.querySelector('.option4');
+          let option5 = document.querySelector('.option5');
+          let option6 = document.querySelector('.option6');
+          let option7 = document.querySelector('.option7');
+          let option8 = document.querySelector('.option8');
+          let option9 = document.querySelector('.option9');
+          let option10 = document.querySelector('.option10');
+          try{
+            option1.addEventListener('touchend', async function(event){optionsListener2(0, hero)})
+            option2.addEventListener('touchend', async function(event){optionsListener2(1, hero)})
+            option3.addEventListener('touchend', async function(event){optionsListener2(2, hero)})
+            option4.addEventListener('touchend', async function(event){optionsListener2(3, hero)})
+            option5.addEventListener('touchend', async function(event){optionsListener2(4, hero)})
+            option6.addEventListener('touchend', async function(event){optionsListener2(5, hero)})
+            option7.addEventListener('touchend', async function(event){optionsListener2(6, hero)})
+            option8.addEventListener('touchend', async function(event){optionsListener2(7, hero)})
+            option9.addEventListener('touchend', async function(event){optionsListener2(8, hero)})
+            option10.addEventListener('touchend', async function(event){optionsListener2(9, hero)})
+          }
+          catch(err){
+            console.log('')
+          }
+          heroName2.innerText = titleCase(input.value);
+          if(isHero2 == true && isHero1 == true){
+            searchButton.disabled = true;
+            input.disabled = true;
+          }
+      }
+
+      //If not multiple options
+      else if(hero.data.results[0].biography['full-name'] != document.querySelector('.listName1').innerText){
+        superHeroBio = hero.data.results[0].biography;
+        superHero = hero.data.results[0].powerstats;
+        heroStats2.insertAdjacentHTML('beforeend',`<li class="listName2">${superHeroBio['full-name']}</li>`)
+        heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.combat}</li><hr class="hrList">`)
+        heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.durability}</li><hr class="hrList">`)
+        heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.intelligence}</li><hr class="hrList">`)
+        heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.power}</li><hr class="hrList">`)
+        heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.speed}</li><hr class="hrList">`)
+        heroStats2.insertAdjacentHTML('beforeend',`<li>${superHero.strength}</li>`)
+        heroName2.innerText = hero.data.results[0].name;
+        isHero2 = true;
+      }
+      else{
+        confirm('Hero already in use, please enter a new hero name!');
+        input.value = "";
+      }
+      //DEBUGGING
+      console.log('Data:', superHero);
+      input.value = "";
+      if(isHero2 == true && isHero1 == true){
+        searchButton.disabled = true;
+        input.disabled = true;
+      }
+    }
+    if(isHero2 == true && isHero1 == true){
+      searchButton.disabled = true;
+      input.disabled = true;
+    }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
 function reset(heroStats, heroName, num){
   input.disabled = false;
   searchButton.disabled = false;
