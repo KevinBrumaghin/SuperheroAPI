@@ -506,7 +506,7 @@ input.addEventListener("keypress", async function(event){
 
 
 //Touch for Mobile
-element.addEventListener('touchend', async function(event) {
+element.addEventListener('touch', async function(event) {
 
   const name = input.value.replace(' ', ''); //Closes gaps on search term to format for URL search
 
@@ -561,16 +561,16 @@ element.addEventListener('touchend', async function(event) {
           let option9 = document.querySelector('.option9');
           let option10 = document.querySelector('.option10');
           try{
-          option1.addEventListener('touchend', async function(event){optionsListener1(0, hero)})
-          option2.addEventListener('touchend', async function(event){optionsListener1(1, hero)})
-          option3.addEventListener('touchend', async function(event){optionsListener1(2, hero)})
-          option4.addEventListener('touchend', async function(event){optionsListener1(3, hero)})
-          option5.addEventListener('touchend', async function(event){optionsListener1(4, hero)})
-          option6.addEventListener('touchend', async function(event){optionsListener1(5, hero)})
-          option7.addEventListener('touchend', async function(event){optionsListener1(6, hero)})
-          option8.addEventListener('touchend', async function(event){optionsListener1(7, hero)})
-          option9.addEventListener('touchend', async function(event){optionsListener1(8, hero)})
-          option10.addEventListener('touchend', async function(event){optionsListener1(9, hero)})
+          option1.addEventListener('touch', async function(event){optionsListener1(0, hero)})
+          option2.addEventListener('touch', async function(event){optionsListener1(1, hero)})
+          option3.addEventListener('touch', async function(event){optionsListener1(2, hero)})
+          option4.addEventListener('touch', async function(event){optionsListener1(3, hero)})
+          option5.addEventListener('touch', async function(event){optionsListener1(4, hero)})
+          option6.addEventListener('touch', async function(event){optionsListener1(5, hero)})
+          option7.addEventListener('touch', async function(event){optionsListener1(6, hero)})
+          option8.addEventListener('touch', async function(event){optionsListener1(7, hero)})
+          option9.addEventListener('touch', async function(event){optionsListener1(8, hero)})
+          option10.addEventListener('touch', async function(event){optionsListener1(9, hero)})
           }
           catch(err){
             console.log('')
@@ -645,16 +645,16 @@ element.addEventListener('touchend', async function(event) {
           let option9 = document.querySelector('.option9');
           let option10 = document.querySelector('.option10');
           try{
-            option1.addEventListener('touchend', async function(event){optionsListener2(0, hero)})
-            option2.addEventListener('touchend', async function(event){optionsListener2(1, hero)})
-            option3.addEventListener('touchend', async function(event){optionsListener2(2, hero)})
-            option4.addEventListener('touchend', async function(event){optionsListener2(3, hero)})
-            option5.addEventListener('touchend', async function(event){optionsListener2(4, hero)})
-            option6.addEventListener('touchend', async function(event){optionsListener2(5, hero)})
-            option7.addEventListener('touchend', async function(event){optionsListener2(6, hero)})
-            option8.addEventListener('touchend', async function(event){optionsListener2(7, hero)})
-            option9.addEventListener('touchend', async function(event){optionsListener2(8, hero)})
-            option10.addEventListener('touchend', async function(event){optionsListener2(9, hero)})
+            option1.addEventListener('touch', async function(event){optionsListener2(0, hero)})
+            option2.addEventListener('touch', async function(event){optionsListener2(1, hero)})
+            option3.addEventListener('touch', async function(event){optionsListener2(2, hero)})
+            option4.addEventListener('touch', async function(event){optionsListener2(3, hero)})
+            option5.addEventListener('touch', async function(event){optionsListener2(4, hero)})
+            option6.addEventListener('touch', async function(event){optionsListener2(5, hero)})
+            option7.addEventListener('touch', async function(event){optionsListener2(6, hero)})
+            option8.addEventListener('touch', async function(event){optionsListener2(7, hero)})
+            option9.addEventListener('touch', async function(event){optionsListener2(8, hero)})
+            option10.addEventListener('touch', async function(event){optionsListener2(9, hero)})
           }
           catch(err){
             console.log('')
