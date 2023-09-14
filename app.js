@@ -506,7 +506,7 @@ input.addEventListener("keypress", async function(event){
 
 
 //Touch for Mobile
-element.addEventListener('touch', async function(event) {
+input.addEventListener('touch', async function(event) {
 
   const name = input.value.replace(' ', ''); //Closes gaps on search term to format for URL search
 
